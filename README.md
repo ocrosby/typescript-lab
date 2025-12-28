@@ -4,7 +4,7 @@ A repository to house typescript examples.
 
 ## Types
 
-There is already a small set of primitive types available in JavaScript: 
+Primitive types available in JavaScript:
 
 - boolean, 
 - bigint, 
@@ -14,7 +14,7 @@ There is already a small set of primitive types available in JavaScript:
 - symbol, and 
 - undefined, 
 
-which you can use in an interface. TypeScript extends this list with a few more, such as:
+Types extended by TypeScript:
 
 - any (allow anything), 
 - unknown (ensure someone using this type declares what the type is), 
