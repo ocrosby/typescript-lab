@@ -81,6 +81,18 @@ class UserAccount {
 const user: User = new UserAccount("Murphy", 1);
 ```
 
+You can use interfaces to annotate parameters and return values for functions:
+
+```Typescript
+function deleteUser(user: User) {
+  // ...
+}
+ 
+function getAdminUser(): User {
+  //...
+}
+```
+
 ## References
 
 - [Typescript Handbook](https://www.typescriptlang.org/docs/handbook/intro.html)
