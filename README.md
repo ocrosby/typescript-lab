@@ -93,6 +93,13 @@ function getAdminUser(): User {
 }
 ```
 
+## Composing Types
+
+With TypeScript, you can create complex types by combining simple ones. There 
+are two popular ways to do so: unions and generics.
+
+### Unions
+
 With a union, you can declare that a type could be one of many types. For 
 example, you can describe a boolean type as being either true or false:
 
