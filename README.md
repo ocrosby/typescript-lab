@@ -93,6 +93,55 @@ function getAdminUser(): User {
 }
 ```
 
+With a union, you can declare that a type could be one of many types. For 
+example, you can describe a boolean type as being either true or false:
+
+```Typescript
+type MyBool = true | false;
+```
+
+You can use union types to describe the set of string or number literals 
+that a value is allowed to be:
+
+
+```Typescript
+type WindowStates = "open" | "closed" | "minimized";
+type LockStates = "locked" | "unlocked";
+type PositiveOddNumbersUnderTen = 1 | 3 | 5 | 7 | 9;
+```
+
+To learn the type of a variable, use typeof:
+
+string
+: `typeof s === "string"`
+
+number
+: `typeof n === "number"`
+
+boolean
+: `typeof b === "boolean"`
+
+undefined
+: `typeof undefined === "undefined"`
+
+function
+: `typeof f === "function"`
+
+array
+: `Array.isArray(a)`
+
+
+```Typescript
+function wrapInArray(obj: string | string[]) {
+  if (typeof obj === "string") {
+    return [obj];
+            
+(parameter) obj: string
+  }
+  return obj;
+}
+```
+
 ## References
 
 - [Typescript Handbook](https://www.typescriptlang.org/docs/handbook/intro.html)
