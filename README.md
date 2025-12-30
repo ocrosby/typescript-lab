@@ -2,6 +2,198 @@
 
 A repository to house typescript examples.
 
+## Running TypeScript Files
+
+This guide explains how to **run TypeScript files**, **create a `package.json`**, and **compile or type‑check TypeScript** using common, pragmatic setups.
+
+---
+
+### 1. Creating a `package.json`
+
+A `package.json` defines your project metadata, dependencies, and scripts.
+
+#### Option A: Initialize interactively (recommended)
+
+```bash
+npm init
+```
+
+You’ll be prompted for:
+
+* package name
+* version
+* entry file
+* license
+
+#### Option B: Initialize with defaults
+
+```bash
+npm init -y
+```
+
+This creates a minimal `package.json` automatically.
+
+---
+
+### 2. Installing TypeScript Tooling
+
+Install TypeScript and common helpers locally (best practice):
+
+```bash
+npm install --save-dev typescript ts-node @types/node
+```
+
+What these do:
+
+* **typescript** → compiler (`tsc`)
+* **ts-node** → run `.ts` files directly
+* **@types/node** → Node.js type definitions
+
+---
+
+### 3. Creating a TypeScript Configuration
+
+Generate a `tsconfig.json`:
+
+```bash
+npx tsc --init
+```
+
+Common useful defaults to enable:
+
+```json
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "CommonJS",
+    "rootDir": "src",
+    "outDir": "dist",
+    "strict": true,
+    "esModuleInterop": true
+  }
+}
+```
+
+---
+
+### 4. Running a TypeScript File (No Build Step)
+
+Best for scripts, experiments, or development.
+
+```bash
+npx ts-node src/index.ts
+```
+
+This:
+
+* Transpiles in memory
+* Runs immediately
+* Does **not** emit JavaScript files
+
+---
+
+### 5. Compiling TypeScript to JavaScript
+
+Best for production and CI.
+
+#### Compile the project
+
+```bash
+npx tsc
+```
+
+This:
+
+* Reads `tsconfig.json`
+* Outputs JavaScript (usually to `dist/`)
+
+#### Run compiled output
+
+```bash
+node dist/index.js
+```
+
+---
+
+### 6. Type‑Checking Only (No Output)
+
+Use this to **verify types without generating JS**:
+
+```bash
+npx tsc --noEmit
+```
+
+Ideal for:
+
+* CI checks
+* Pre‑commit hooks
+* Fast validation
+
+---
+
+### 7. Using npm Scripts (Recommended Workflow)
+
+Add scripts to `package.json`:
+
+```json
+{
+  "scripts": {
+    "dev": "ts-node src/index.ts",
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "start": "node dist/index.js"
+  }
+}
+```
+
+Run them with:
+
+```bash
+npm run dev
+npm run build
+npm run typecheck
+npm run start
+```
+
+---
+
+### 8. Common Issues & Fixes
+
+#### ❌ "Cannot use import statement outside a module"
+
+Add to `package.json`:
+
+```json
+{
+  "type": "module"
+}
+```
+
+Or switch to CommonJS syntax (`require`).
+
+---
+
+### 9. Recommended Setups
+
+| Use Case       | Recommendation                |
+| -------------- | ----------------------------- |
+| One‑off script | `npx ts-node file.ts`         |
+| App / service  | `tsc` → `node dist/...`       |
+| CI             | `tsc --noEmit`                |
+| Libraries      | Always compile before publish |
+
+---
+
+### Summary
+
+* `npm init -y` → create project
+* `ts-node` → run TS directly
+* `tsc` → compile TS to JS
+* `tsc --noEmit` → type‑check only
+
+This setup scales cleanly from scripts to production projects.
+
+
 ## Types
 
 Primitive types available in JavaScript:
