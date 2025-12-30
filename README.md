@@ -8,6 +8,25 @@ This guide explains how to **run TypeScript files**, **create a `package.json`**
 
 ---
 
+### Project Setup
+
+```Shell
+mkdir <project-name>
+cd <project-name>
+npm init -y
+npm install --save-dev typescript ts-node @types/node
+npx tsc --init
+node ../scripts/scripts-manager.js clear
+node ../scripts/scripts-manager.js add dev "ts-node src/index.ts"
+node ../scripts/scripts-manager.js add build "tsc"
+node ../scripts/scripts-manager.js add typecheck "tsc --noEmit"
+node ../scripts/scripts-manager.js add start "node dist/index.js"
+```
+    "dev": "ts-node src/index.ts",
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "start": "node dist/index.js"
+
 ### 1. Creating a `package.json`
 
 A `package.json` defines your project metadata, dependencies, and scripts.
