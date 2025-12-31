@@ -1,13 +1,16 @@
-import type { IUserBuilder } from "./domain/user/builder";
-import { UserBuilder } from "./domain/user/builder";
-import type { IUser, IUserSerializer } from "./domain/user/model";
-import { UserSerializer } from "./domain/user/model";
-import type { IUserFactory } from "./domain/user/factory";
-import { UserFactory } from "./domain/user/factory";
-import type { IUserRepository } from "./domain/user/repository";
-import { UserRepository } from "./domain/user/repository";
-import type { ILogger } from "./logging";
-import { ConsoleLogger } from "./logging";
+import {
+  UserBuilder,
+  UserFactory,
+  UserRepository,
+  UserSerializer,
+  type IUser,
+  type IUserBuilder,
+  type IUserFactory,
+  type IUserRepository,
+  type IUserSerializer,
+} from "./domain";
+
+import { ConsoleLogger, type ILogger } from "./logging";
 
 const logger: ILogger = new ConsoleLogger();
 const serializer: IUserSerializer = new UserSerializer();
