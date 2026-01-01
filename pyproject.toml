@@ -1,0 +1,11 @@
+[project]
+name = "typescript-lab"
+version = "0.1.0"
+description = "A lab project for typescript exploration."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = ["click>=8.1"]
+
+[project.scripts]
+tsproj = "scripts.ts_project:cli"
+
